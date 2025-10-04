@@ -1,0 +1,16 @@
+#mobile-nav {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #mobile-nav[style="display: none;"] {
+    transform: translateX(100%);  /* Esto lo desliza fuera de la pantalla */
+  }
+  
+  .bar-menu {
+    cursor: pointer;
+  }
+  
+  .bar-menu.open i {
+    transform: rotate(90deg);  /* Cambia el ícono cuando se abre el menú */
+  }
+  
