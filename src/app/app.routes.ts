@@ -4,6 +4,7 @@ import { Shop } from './page/shop/shop';
 import { Contact } from './page/contact/contact';
 import { About } from './page/about/about';
 import { Services } from './page/services/services';
+import { ShopDetail } from './page/shop-detail/shop-detail';
 
 export const routes: Routes = [
   {
@@ -49,6 +50,15 @@ export const routes: Routes = [
     data: {
       description: 'Servicios',
       canonical: '/services',
+    },
+  },
+  {
+    path: 'shop-detail/:id',
+    component: ShopDetail,
+    title: 'Shop Detail | Productos para tu mascota',
+    data: {
+      description: 'Encuentra los mejores productos, alimentos y accesorios para tus mascotas.',
+      canonical: '/shop-detail',
     },
   },
 ];

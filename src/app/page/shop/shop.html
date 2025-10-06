@@ -41,18 +41,9 @@
         <div class="sidebar">
             <h3>Categorias</h3>
             <div class="boder-bar"></div>
-            <ul class="category">
+            <ul class="category" *ngFor="let category of categories">
               <li>
-                <a href="our-products.html#">Alimentos<span>32</span></a>
-              </li>
-              <li>
-                <a href="our-products.html#">Accesorios<span>12</span></a>
-              </li>
-              <li>
-                <a href="our-products.html#">Medicamentos<span>14</span></a>
-              </li>
-              <li class="end">
-                <a href="our-products.html#">Snacks<span>32</span></a>
+                <a href="">{{category.name}}<span>.</span></a>
               </li>
             </ul>
         </div>
@@ -84,28 +75,16 @@
         <div class="sidebar">
           <h3>Top Productos</h3>
           <div class="boder-bar"></div>
-          <ul class="top-products">
+          <ul class="top-products" *ngFor="let product of products">
             <li>
-              <img src="assets/img/top-products-1.png" alt="top-products">
+              <img src="{{product.images[0]}}" alt="top-products" 
+              style="max-width: 100px;">
               <div>
-                <a href="our-products.html#">Procan Adult Dog Food</a>
-                <span>$32.00</span>
+                <a href="">{{product.name}}</a>
+                <span>$ {{product.price}}</span>
               </div>
             </li>
-            <li>
-              <img src="assets/img/top-products-2.png" alt="top-products">
-              <div>
-                <a href="our-products.html#">Procan Adult Dog Food</a>
-                <span>$32.00</span>
-              </div>
-            </li>
-            <li>
-              <img src="assets/img/top-products-3.png" alt="top-products">
-              <div>
-                <a href="our-products.html#">Procan Adult Dog Food</a>
-                <span>$32.00</span>
-              </div>
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -124,10 +103,10 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6" *ngFor="let product of products">
                 <div class="healthy-product">
                     <div class="healthy-product-img">
-                        <img src="assets/img/food-1.png" alt="food">
+                        <img src="{{product.images[0]}}" alt="food" style="max-width: 100px;">
                         <ul class="star">
                             <li><i class="fa-solid fa-star"></i></li>
                             <li><i class="fa-solid fa-star"></i></li>
@@ -136,18 +115,17 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a (click)="navigateTo('/shop-detail', product.id)">Comprar</a>                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                     </div>
-                    <span>Alimentos</span>
-                    <a href="our-products.html#">Procan Adult Dog Food</a>
-                    <h6>$32.00</h6>
+                    <span>{{product.category}}</span>
+                    <a [routerLink]="['/shop-detail', product.id]">{{product.name}}</a>
+                    <h6>$ {{product.price}}</h6>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
+           <!--  <div class="col-md-4 col-sm-6">
                 <div class="healthy-product">
                     <div class="healthy-product-img">
                         <img src="assets/img/food-2.png" alt="food">
@@ -159,15 +137,15 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a (click)="navigateTo('shop-detail')">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Best Organic Feeds</a>
+                    <a href="">Best Organic Feeds</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
             </div>
@@ -183,14 +161,14 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Green Papaya Fruit</a>
+                    <a href="">Green Papaya Fruit</a>
                     <h6>$32.00</h6>
                 </div>
             </div>
@@ -206,15 +184,15 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">KMR Pwdr 12oz</a>
+                    <a href="">KMR Pwdr 12oz</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
             </div>
@@ -230,15 +208,15 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Cattle Feed</a>
+                    <a href="">Cattle Feed</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
             </div>
@@ -254,15 +232,15 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Best Organic Feeds</a>
+                    <a href="">Best Organic Feeds</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
             </div>
@@ -278,14 +256,14 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Green Papaya Fruit</a>
+                    <a href="">Green Papaya Fruit</a>
                     <h6>$32.00</h6>
                 </div>
             </div>
@@ -301,15 +279,15 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">KMR Pwdr 12oz</a>
+                    <a href="">KMR Pwdr 12oz</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
             </div>
@@ -325,27 +303,27 @@
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
                         <div class="add-to-cart">
-                          <a href="our-products.html#">Comprar</a>
-                          <a href="our-products.html#" class="heart-wishlist">
+                          <a href="">Comprar</a>
+                          <a href="" class="heart-wishlist">
                             <i class="fa-regular fa-heart"></i>
                           </a>
                         </div>
                         <h4>-24%</h4>
                     </div>
                     <span>Alimentos</span>
-                    <a href="our-products.html#">Cattle Feed</a>
+                    <a href="">Cattle Feed</a>
                     <h6><del>$32.00</del>$22.00</h6>
                 </div>
-            </div>
+            </div> -->
 
-            <ul class="pagination m-auto">
-                  <li class="prev"><a href="our-products.html#"><i class='fa-solid fa-arrow-left'></i></a></li>
-                  <li><a href="our-products.html#">1</a></li>
-                  <li><a href="our-products.html#">2</a></li>
-                  <li><a href="our-products.html#">......</a></li>
-                  <li><a href="our-products.html#">18</a></li>
-                  <li class="next"><a href="our-products.html#"><i class='fa-solid fa-arrow-right'></i></a></li>
-               </ul>
+            <!-- <ul class="pagination m-auto">
+                  <li class="prev"><a href=""><i class='fa-solid fa-arrow-left'></i></a></li>
+                  <li><a href="">1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">......</a></li>
+                  <li><a href="">18</a></li>
+                  <li class="next"><a href=""><i class='fa-solid fa-arrow-right'></i></a></li>
+               </ul> -->
         </div>
       </div>
     </div>

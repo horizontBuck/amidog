@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { ScriptLoaderService } from '../../services/script-loader.service';
+import { Category } from '../../interfaces/category.interface';
+import { CategoriesService } from '../../services/categories-service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +14,15 @@ import { ScriptLoaderService } from '../../services/script-loader.service';
 export class Home implements AfterViewInit, OnDestroy {
   private initialized = false;
   activeIndex = 1;
+  categories: Category[] = [];
   
-  constructor(private scriptLoaderService: ScriptLoaderService) {}
+  constructor(private scriptLoaderService: ScriptLoaderService,
+    public categoriesService: CategoriesService
+  ) {
+    this.categoriesService.listTop().subscribe((categories) => {
+      this.categories = categories;
+    });
+  }
 
   async ngAfterViewInit(): Promise<void> {
     // Cargar solo los scripts necesarios para el carousel (jquery ya debería estar cargado en App)
